@@ -21,37 +21,44 @@ namespace Calculator
             InitializeComponent();
         }
 
-        private void button_click(object sender, EventArgs e)
-        {
-            Button button = (Button)sender;
+         private void button_click(object sender, EventArgs e)
+ {
+     Button button = (Button)sender;
 
-            if (isEvaluated)
-            {
-                txtInput.Text = "";
-                isEvaluated = false;
-            }
+     if (isEvaluated)
+     {
+         txtInput.Text = "";
+         isEvaluated = false;
+     }
 
-            string input = txtInput.Text;
-            string value = button.Text;
+     string input = txtInput.Text;
+     string value = button.Text;
 
-            if (input == "0")
-            {
-                txtInput.Text = "";
-            }
+     if (value == "-" && (input.Length == 0 || input == "0" || "+-*/".Contains(input[input.Length - 1])))
+     {
+         txtInput.Text = "-"; // Allow negative sign at the beginning or after an operator
+     }
+     else
+     {
+         if (input == "0" && value != "-")
+         {
+             txtInput.Text = "";
+         }
 
-            if (value == ".")
-            {
-                string[] parts = Regex.Split(input, @"[\+\-\*/]");
-                string lastPart = parts[parts.Length - 1];
+         if (value == ".")
+         {
+             string[] parts = Regex.Split(input, @"[\+\-\*/]");
+             string lastPart = parts[parts.Length - 1];
 
-                if (!lastPart.Contains("."))
-                    txtInput.Text += value;
-            }
-            else
-            {
-                txtInput.Text += value;
-            }
-        }
+             if (!lastPart.Contains("."))
+                 txtInput.Text += value;
+         }
+         else
+         {
+             txtInput.Text += value;
+         }
+     }
+ }
 
         private void operator_click(object sender, EventArgs e)
         {
