@@ -47,7 +47,7 @@ namespace Calculator
 
          if (value == ".")
          {
-             string[] parts = Regex.Split(input, @"[\+\-\*\/\%\]");
+             string[] parts = Regex.Split(input, @"[\+\-\*/]");
              string lastPart = parts[parts.Length - 1];
 
              if (!lastPart.Contains("."))
