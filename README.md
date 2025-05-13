@@ -4,7 +4,8 @@ A simple calculator application built using **Windows Forms (WinForms)** in **C#
 
 ## 📷 Screenshot
 
-> *(Add a screenshot here if available)*
+[Screenshot 2025-05-14 002429](https://github.com/user-attachments/assets/af1bb263-d3e4-4c70-b3cf-7ab77b5718d0)
+
 
 ## ✅ Features
 
