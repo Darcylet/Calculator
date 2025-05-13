@@ -34,7 +34,7 @@ namespace Calculator
      string input = txtInput.Text;
      string value = button.Text;
 
-     if (value == "-" && (input.Length == 0 || input == "0" || "+-*/".Contains(input[input.Length - 1])))
+     if (value == "-" && (input.Length == 0 || input == "0" || "+-*/%".Contains(input[input.Length - 1])))
      {
          txtInput.Text = "-"; // Allow negative sign at the beginning or after an operator
      }
@@ -75,7 +75,7 @@ namespace Calculator
 
             char lastChar = txtInput.Text[txtInput.Text.Length - 1];
 
-            if ("+-*/".Contains(lastChar))
+            if ("+-*/%".Contains(lastChar))
             {
               
                 MessageBox.Show("Two operators entered consecutively. Use Clear Entry to fix or press '=' to see error.");
@@ -91,7 +91,7 @@ namespace Calculator
         {
             string expression = txtInput.Text;
 
-            if (expression.Length == 0 || "+-*/".Contains(expression[txtInput.Text.Length - 1]))
+            if (expression.Length == 0 || "+-*/%".Contains(expression[txtInput.Text.Length - 1]))
             {
                 MessageBox.Show("Invalid expression. Please fix or use Clear Entry.");
                 return;
@@ -151,7 +151,15 @@ namespace Calculator
             }
         }
 
+        private void frmCalculator_Load(object sender, EventArgs e)
+        {
 
+        }
+
+        private void txtInput_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
